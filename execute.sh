@@ -1,2 +1,2 @@
-g++ main.cpp md5.cpp
+g++ main.cpp md5.cpp -Ofast
 ./a.out
