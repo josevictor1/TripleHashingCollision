@@ -1,2 +1,2 @@
-g++ ag.cpp mainAG.cpp md5.cpp -Ofast
+g++ ag.cpp mainag.cpp md5.cpp -Ofast
 ./a.out
