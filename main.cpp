@@ -6,12 +6,12 @@
 #include "md5.h"
 
 #define SIZE_HASH	4
-#define SIZE_M1		10000
-#define SIZE_M2		10000
-#define SIZE_M3		10000
+#define SIZE_M1		1000000
+#define SIZE_M2		1000000
+#define SIZE_M3		100000
 #define SIZE_STR	10
 
-using namespace std;
+using namespace std; 
 using HashedToOriginal = map<string, string>;
 
 string create_random_string();
@@ -88,11 +88,13 @@ HashedToOriginal find_collisons(const HashedToOriginal& hashes, int n_messages) 
 	HashedToOriginal collisions;
 	string hashed, random;
 
-	for (int i = 0; i < SIZE_M2; i++) {
+	for (int i = 0; i < n_messages; i++) {
 		try {
 			random = create_random_string();
 			hashed = cryptohash(random);
 
+			//cout << hashes.at(hashed) << endl; 
+			//cout << random << endl;
 			if (hashes.at(hashed) != random)
 				collisions[hashed] = random;
 		}
