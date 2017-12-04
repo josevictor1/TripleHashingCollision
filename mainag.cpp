@@ -1,7 +1,5 @@
 #include "ag.h"
 
-
-
 int main(){
 
     int pop[POP][4];
@@ -13,7 +11,7 @@ int main(){
         }
         pop[i][3] = execute(pop[i][0], pop[i][1], pop[i][2]);
 
-        cout << "colisoes:" << pop[i][3] << endl;
+        //cout << "colisoes:" << pop[i][3] << endl;
     }
 
 
@@ -30,9 +28,9 @@ int main(){
         }
         parents[i] = maxelement(pop, tournamentelements, TOUR);
     }
-
+    cout << "passou" << endl;
     for(size_t i = 1; i < TCROSS; i = i + 2){
-        number = rand()%10;
+        number = random()%10;
         //printf("%d\n",number);
         crossover(pop, pop[parents[i-1]], pop[parents[i]], number, i);
     }
@@ -42,11 +40,11 @@ int main(){
 
     for(size_t i = POP; i < TPOP; i++){
     
-        p = rand()%POP;
-        n1 = rand()%10;
-        n2 = rand()%10;
+        p = random()%POP;
+        n1 = random()%10;
+        n2 = random()%10;
         while (n1 == n2) {
-            n2 = rand()%10;
+            n2 = random()%10;
         }
         if(p <= PMUT){
             number = pop[i][n1];
