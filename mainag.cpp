@@ -1,17 +1,9 @@
 #include "ag.h"
 
-<<<<<<< HEAD
-
-
-int main(){
-
-    int pop[POP][4];
-=======
 int main(){
 
     int pop[POP][4];
     int parents[TCROSS];
->>>>>>> origin/master
 
     for(size_t i = 0; i < POP; i++){
         for(size_t j = 0; j < 3; j++){
@@ -19,16 +11,6 @@ int main(){
         }
         pop[i][3] = execute(pop[i][0], pop[i][1], pop[i][2]);
 
-<<<<<<< HEAD
-        cout << "colisoes:" << pop[i][3] << endl;
-    }
-
-
-    int tournamentelements[TOUR];
-    
-    for(i = 0; i < TCROSS; i++){
-        for (j = 0; j < TOUR; j++) {
-=======
         //cout << "colisoes:" << pop[i][3] << endl;
     }
 
@@ -37,7 +19,6 @@ int main(){
     
     for(size_t i = 0; i < TCROSS; i++){
         for (size_t j = 0; j < TOUR; j++) {
->>>>>>> origin/master
             number = random()%POP;
             while(!verify(tournamentelements, number, j)){
                 number = random()%POP;
@@ -47,21 +28,6 @@ int main(){
         }
         parents[i] = maxelement(pop, tournamentelements, TOUR);
     }
-<<<<<<< HEAD
-
-    for(i = 1; i < TCROS; i = i + 2){
-        number = rand()%10;
-        //printf("%d\n",number);
-        crossover(solutions, solutions[parents[i-1]], solutions[parents[i]], number, i);
-    }
-
-
-
-
-    
-
-
-=======
     cout << "passou" << endl;
     for(size_t i = 1; i < TCROSS; i = i + 2){
         number = random()%10;
@@ -90,6 +56,5 @@ int main(){
     }
 
     quickSort(pop, 0, TPOP - 1, 10);
->>>>>>> origin/master
 
 }
