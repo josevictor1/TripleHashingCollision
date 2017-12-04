@@ -6,15 +6,26 @@
 #include "md5.h"
 
 #define SIZE_HASH	4
+<<<<<<< HEAD
 #define SIZE_M      100000
+=======
+#define SIZE_M      10000
+>>>>>>> origin/master
 #define N_SETS      3
 #define SIZE_STR	10
 
 #define POP  100
+<<<<<<< HEAD
 #define POPMAX 180
 #define NGER 1000
 #define TOUR 3
 #define TCROSS int(POP*50)
+=======
+#define TPOP 180
+#define NGER 1000
+#define TOUR 3
+#define TCROSS int(POP*0.4)
+>>>>>>> origin/master
 #define PMUT 20
 
 using namespace std;

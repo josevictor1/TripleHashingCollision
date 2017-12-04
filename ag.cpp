@@ -140,7 +140,11 @@ int maxelement(int solutions[POP][4], int *tournamentelements, int tour){
     return tournamentelements[max];
 }
 
+<<<<<<< HEAD
 void crossover(int solutions[TPOP][4], int parent1[4], int parent2[4], int number, int range){
+=======
+void crossover(int solutions[POP][4], int parent1[4], int parent2[4], int number, int range){
+>>>>>>> origin/master
     
     int aux[4], current, i;
     memset(aux, -1, sizeof aux);
@@ -161,8 +165,15 @@ void crossover(int solutions[TPOP][4], int parent1[4], int parent2[4], int numbe
         }
     }
 
+<<<<<<< HEAD
     calcnumbers(solutions[POP + range - 1]);
     calcnumbers(solutions[POP + range]);
+=======
+
+
+    solutions[POP + range - 1][3] = execute(solutions[POP + range - 1][0],solutions[POP + range - 1][1],solutions[POP + range - 1][2]);
+    solutions[POP + range][3]= execute(solutions[POP + range][0],solutions[POP + range][1],solutions[POP + range][2]);
+>>>>>>> origin/master
     
 }
 
