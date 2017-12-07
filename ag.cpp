@@ -140,16 +140,17 @@ int maxelement(int solutions[POP][4], int *tournamentelements, int tour){
     return tournamentelements[max];
 }
 void crossover(int solutions[POP][4], int parent1[4], int parent2[4], int range){
-    int aux[4], i;
+    int aux[4], pos1 = random()%3, pos1 = random()%3;
     
-    for(i = 0; i < 3; i++){
-
-        if(i%2 != 0){
+    for(size_t i = 0; i < 3; i++){
+        
+        if(i == pos1 || i == pos2){
             solutions[POP + range - 1][i] = parent2[i];
             solutions[POP + range][i] = parent1[i];
+         
         }else{
             solutions[POP + range - 1][i] = parent1[i];
-            solutions[POP + range][i] = parent2[i];
+            solutions[POP + range][i] = parent2[i]; 
         }
     }
 
