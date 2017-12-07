@@ -139,14 +139,32 @@ int maxelement(int solutions[POP][4], int *tournamentelements, int tour){
     }
     return tournamentelements[max];
 }
+void crossover(int solutions[POP][4], int parent1[4], int parent2[4], int range){
+    int aux[4], i;
+    
+    for(i = 0; i < 3; i++){
 
+        if(i%2 != 0){
+            solutions[POP + range - 1][i] = parent2[i];
+            solutions[POP + range][i] = parent1[i];
+        }else{
+            solutions[POP + range - 1][i] = parent1[i];
+            solutions[POP + range][i] = parent2[i];
+        }
+    }
+
+    solutions[POP + range - 1][3] = execute(solutions[POP + range - 1][0],solutions[POP + range - 1][1],solutions[POP + range - 1][2]);
+    solutions[POP + range][3]= execute(solutions[POP + range][0],solutions[POP + range][1],solutions[POP + range][2]);
+    
+}
+/*
 void crossover(int solutions[POP][4], int parent1[4], int parent2[4], int number, int range){
     
     int aux[4], current, i;
     memset(aux, -1, sizeof aux);
     aux[number] = parent1[number];
     current = search(parent1,parent2[number]);
-    while(aux[number] != parent1[current]){
+    while(aux[number]%3 != parent1[current]%3){
         aux[current] = parent1[current];
         current = search(parent1, parent2[current]);
     }
@@ -167,7 +185,7 @@ void crossover(int solutions[POP][4], int parent1[4], int parent2[4], int number
     solutions[POP + range][3]= execute(solutions[POP + range][0],solutions[POP + range][1],solutions[POP + range][2]);
     
 }
-
+*/
 int search(int vet[3], int value){
     int i;
     for(i = 0; i < 3; i++){

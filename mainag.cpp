@@ -32,7 +32,7 @@ int main(){
     for(size_t i = 1; i < TCROSS; i = i + 2){
         number = random()%10;
         //printf("%d\n",number);
-        crossover(pop, pop[parents[i-1]], pop[parents[i]], number, i);
+        crossover(pop, pop[parents[i-1]], pop[parents[i]], i);
     }
 
 
