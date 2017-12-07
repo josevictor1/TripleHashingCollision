@@ -18,11 +18,8 @@
 #define PMUT 20
 
 using namespace std;
-using HashedToOriginal = map<string, string>;
 
 string create_random_string();
-string cryptohash(const string& original);
-HashedToOriginal find_collisons(const HashedToOriginal& hashes, int n_messages);
 int execute(int m1, int m2, int m3);
 void crossover(int solutions[TPOP][4], int parent1[4], int parent2[4], int number, int range);
 int search(int vet[10], int value);
