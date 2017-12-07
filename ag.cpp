@@ -48,10 +48,11 @@ HashToString find_collisons(const HashToString& hashes, int n_messages, StringTo
 	return collisions;
 }
 
+const StringToHash message_set = create_messages();
+
 int execute(int m1, int m2, int m3){
-	const static StringToHash messages = create_messages();
 	HashToString hashes1, hashes2, hashes3;
-	auto iterator = messages.begin();
+	auto iterator = message_set.begin();
 
 	for (int i = 0; i < m1; i++) {
 		hashes1[iterator->second] = iterator->first;
