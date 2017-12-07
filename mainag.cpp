@@ -14,47 +14,49 @@ int main(){
         //cout << "colisoes:" << pop[i][3] << endl;
     }
 
+    for(size_t nger = 0; nger < NGER; nger++){
+        int tournamentelements[TOUR], number;
 
-    int tournamentelements[TOUR], number;
-    
-    for(size_t i = 0; i < TCROSS; i++){
-        for (size_t j = 0; j < TOUR; j++) {
-            number = random()%POP;
-            while(!verify(tournamentelements, number, j)){
+        for(size_t i = 0; i < TCROSS; i++){
+            for (size_t j = 0; j < TOUR; j++) {
                 number = random()%POP;
+                while(!verify(tournamentelements, number, j)){
+                    number = random()%POP;
+                }
+                tournamentelements[j] = number;
+
             }
-            tournamentelements[j] = number;
-
+            parents[i] = maxelement(pop, tournamentelements, TOUR);
         }
-        parents[i] = maxelement(pop, tournamentelements, TOUR);
-    }
-    cout << "passou" << endl;
-    for(size_t i = 1; i < TCROSS; i = i + 2){
-        number = random()%10;
-        //printf("%d\n",number);
-        crossover(pop, pop[parents[i-1]], pop[parents[i]], i);
-    }
+        cout << "passou" << endl;
+        for(size_t i = 1; i < TCROSS; i = i + 2){
+            number = random()%10;
+            //printf("%d\n",number);
+            crossover(pop, pop[parents[i-1]], pop[parents[i]], i);
+        }
 
 
-    int n1, n2, p;
+        int n1, n2, p;
 
-    for(size_t i = POP; i < TPOP; i++){
-    
-        p = random()%POP;
-        n1 = random()%10;
-        n2 = random()%10;
-        while (n1 == n2) {
+        for(size_t i = POP; i < TPOP; i++){
+
+            p = random()%POP;
+            n1 = random()%10;
             n2 = random()%10;
+            while (n1 == n2) {
+                n2 = random()%10;
+            }
+            if(p <= PMUT){
+                number = pop[i][n1];
+                pop[i][n1] = pop[i][n2];
+                pop[i][n2] = number;
+                pop[i][3] = execute(pop[i][0],pop[i][1],pop[i][2]);
+            }
+            
         }
-        if(p <= PMUT){
-            number = pop[i][n1];
-            pop[i][n1] = pop[i][n2];
-            pop[i][n2] = number;
-            pop[i][3] = execute(pop[i][0],pop[i][1],pop[i][2]);
-        }
-        
-    }
 
-    quickSort(pop, 0, TPOP - 1, 10);
+        quickSort(pop, 0, TPOP - 1, 10);
+
+    }
 
 }
