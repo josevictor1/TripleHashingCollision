@@ -21,7 +21,8 @@ using namespace std;
 
 string create_random_string();
 int execute(int m1, int m2, int m3);
-void crossover(int solutions[TPOP][4], int parent1[4], int parent2[4], int number, int range);
+void crossover(int solutions[POP][4], int parent1[4], int parent2[4], int range);
+//void crossover(int solutions[TPOP][4], int parent1[4], int parent2[4], int number, int range);
 int search(int vet[10], int value);
 void quickSort(int solutions[POP][N_SETS+1], int comeco, int fim, int pos);
 void exchange(int element1[4], int element2[4]);
