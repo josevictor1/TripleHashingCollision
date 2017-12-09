@@ -43,12 +43,16 @@ HashToString find_collisons(const HashToString& hashes, int n_messages, StringTo
 	for (int i = 0; i < n_messages && i < hashes.size(); i++) {
 		//cout << i << endl;
 // bug segentation esta aqui, ainda nao resolvi
-		if (hashes.count(iterator->second) > 0)
+//aparentemente a treta esta np conjunto gerado
+		if (hashes.count(iterator->second) > 0 && iterator->second != 0){
+			//cout<<collisions[iterator->second]<<" | iterator->second | "<< iterator->second<<endl;
+			//cout << "iterator->first" << iterator->first << endl;
 			collisions[iterator->second] = iterator->first;
+		}
 
 		iterator++;
 	}
-
+	cout << "passou do loop"<< endl;
 	return collisions;
 }
 
@@ -60,10 +64,18 @@ int execute(int m1, int m2, int m3){
 
 	assert((m1 + m2 + m3) == SIZE_M);
 
+	for (int i = 0; i < 1000000; i++) {
+		cout << iterator->first << iterator->second << endl;
+		iterator++;
+	}
+	iterator = message_set.begin();
+	
+
 	for (int i = 0; i < m1; i++) {
 		hashes1[iterator->second] = iterator->first;
 		iterator++;
 	}
+	
 	cout << " passou dentro da execute "<< endl;
 	hashes2 = find_collisons(hashes1, m2, iterator);
 	hashes3 = find_collisons(hashes2, m2, iterator);
