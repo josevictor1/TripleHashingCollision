@@ -38,8 +38,11 @@ StringToHash create_messages() {
 
 HashToString find_collisons(const HashToString& hashes, int n_messages, StringToHash::const_iterator& iterator) {
 	HashToString collisions;
+	auto iteratoraux = hashes.end();
 
-	for (int i = 0; i < n_messages; i++) {
+	for (int i = 0; i < n_messages && i < hashes.size(); i++) {
+		//cout << i << endl;
+// bug segentation esta aqui, ainda nao resolvi
 		if (hashes.count(iterator->second) > 0)
 			collisions[iterator->second] = iterator->first;
 
@@ -61,10 +64,11 @@ int execute(int m1, int m2, int m3){
 		hashes1[iterator->second] = iterator->first;
 		iterator++;
 	}
-
+	cout << " passou dentro da execute "<< endl;
 	hashes2 = find_collisons(hashes1, m2, iterator);
 	hashes3 = find_collisons(hashes2, m2, iterator);
 
+	cout << " passou dentro da execute 2"<< endl;
 	return hashes3.size();
 }
 
