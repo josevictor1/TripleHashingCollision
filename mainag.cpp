@@ -5,9 +5,12 @@ int main(){
     int pop[POP][4];
     int parents[TCROSS];
 
+    cout << "passou" << endl;
+
     for(size_t i = 0; i < POP; i++){
         pop[i][2] = SIZE_M;
         for(size_t j = 0; j < 2; j++){
+            cout << "passou loop" << endl;
             int generated = random();
             pop[i][j] = (generated % pop[i][2]) + 1;
             pop[i][2] -= pop[i][j];
@@ -18,7 +21,7 @@ int main(){
 
         // cout << "colisoes:" << pop[i][3] << endl;
     }
-
+    cout << "passou" << endl;
     for(size_t nger = 0; nger < NGER; nger++){
         clog << "Geração " << nger << '\r';
         int tournamentelements[TOUR], number;
