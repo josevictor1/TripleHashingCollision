@@ -1,4 +1,10 @@
+#include <cstdlib>
+#include <iostream>
+
+#include "cryptohash.h"
 #include "ag.h"
+
+using namespace std;
 
 int main() {
 	int pop[POP][4];
