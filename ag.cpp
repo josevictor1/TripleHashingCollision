@@ -55,6 +55,7 @@ int execute(int m1, int m2, int m3){
 	HashToString hashes1, hashes2, hashes3;
 	auto iterator = message_set.begin();
 
+	assert(message_set.size() == SIZE_M);
 	assert((m1 + m2 + m3) == SIZE_M);
 
 	for (int i = 0; i < m1; i++) {
