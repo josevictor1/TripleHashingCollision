@@ -1,15 +1,15 @@
 #include <cassert>
-#include <map>
 #include <random>
 #include <string>
+#include <unordered_map>
 
 #include "md5.h"
 #include "cryptohash.h"
 
 using namespace std;
 
-using HashToString = map<int, string>;
-using StringToHash = map<string, int>;
+using HashToString = unordered_map<int, string>;
+using StringToHash = unordered_map<string, int>;
 
 int cryptohash(const string& original) {
 	string hashed = md5(original);
