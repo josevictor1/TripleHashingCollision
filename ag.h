@@ -1,14 +1,15 @@
+#include "cryptohash.h"
+
 #define N_SETS 3
 #define POP  100
 #define TPOP 180
-#define NGER 1000
+#define NGER 100
 #define TOUR 3
-#define TCROSS int(POP*0.4)
 #define PMUT 20
 
-int execute(int m1, int m2, int m3);
+const int TCROSS = TPOP - POP;
+
 void crossover(int solutions[POP][4], int parent1[4], int parent2[4], int range);
-//void crossover(int solutions[TPOP][4], int parent1[4], int parent2[4], int number, int range);
 int search(int vet[10], int value);
 void quickSort(int solutions[POP][N_SETS+1], int comeco, int fim, int pos);
 void exchange(int element1[4], int element2[4]);
