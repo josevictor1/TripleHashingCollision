@@ -1,4 +1,4 @@
-#include "ag.h"
+#include "cryptohash.h"
 
 int main() {
 	cout << execute(500000, 300000, 200000) << " collisions" << endl;
