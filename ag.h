@@ -6,7 +6,7 @@
 #include "md5.h"
 
 #define SIZE_HASH	4
-#define SIZE_M      1000000
+#define SIZE_M      10000
 #define N_SETS      3
 #define SIZE_STR	10
 
