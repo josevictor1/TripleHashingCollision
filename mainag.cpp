@@ -1,7 +1,6 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "cryptohash.h"
 #include "ag.h"
 
 using namespace std;
@@ -25,12 +24,12 @@ int main() {
 		pop[i][3] = execute(pop[i][0], pop[i][1], pop[i][2]);
 	}
 
-	for(size_t nger = 0; nger < NGER; nger++){
-		clog << "Geração " << nger << endl;
+	for(size_t nger = 1; nger <= NGER; nger++) {
+		clog << "\rGeração " << nger;	// << endl;
 		int tournamentelements[TOUR], number;
 
-		// cout << "tournament" << endl;
-		for(size_t i = 0; i < TCROSS; i++){
+		// clog << "tournament" << endl;
+		for(size_t i = 0; i < TCROSS; i++) {
 			for (size_t j = 0; j < TOUR; j++) {
 				number = random()%POP;
 				while(!verify(tournamentelements, number, j)){
@@ -42,16 +41,16 @@ int main() {
 			parents[i] = maxelement(pop, tournamentelements, TOUR);
 		}
 
-		// cout << "crossover" << endl;
-		for(size_t i = 1; i < TCROSS; i = i + 2){
+		// clog << "crossover" << endl;
+		for(size_t i = 0; i < TCROSS; i = i + 2){
 			// number = random()%10;
 			crossover(pop, pop[parents[i-1]], pop[parents[i]], i);
 		}
 
 		int n1, n2, p;
 
-		// cout << "mutate" << endl;
-		for(size_t i = POP; i < TPOP; i++){
+		// clog << "mutate" << endl;
+		for(size_t i = 0; i < POP; i++){
 			p = random()%100;
 			n1 = random()%3;
 
@@ -63,14 +62,15 @@ int main() {
 				number = pop[i][n1];
 				pop[i][n1] = pop[i][n2];
 				pop[i][n2] = number;
-				// clog << pop[i][0] << '\t' << pop[i][1] << '\t' << pop[i][2] << endl ;
+				// clog << pop[i][0] << '\t' << pop[i][1] << '\t' << pop[i][2] << endl;
 				pop[i][3] = execute(pop[i][0],pop[i][1],pop[i][2]);
 			}
 
 		}
 
-		// cout << "elitism" << endl;
+		// clog << "elitism" << endl;
 		quickSort(pop, 0, TPOP - 1, 3);
 	}
 
+	clog << pop[0][0] << '\t' << pop[0][1] << '\t' << pop[0][2] << "\t->\t" << pop[0][3] << endl;
 }
