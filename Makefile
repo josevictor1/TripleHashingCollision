@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -g -Og -std=c++11
+CXXFLAGS = -Ofast -std=c++11 -Wall
 
 all: collision genetic
 
