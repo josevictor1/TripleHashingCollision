@@ -22,10 +22,10 @@ void quickSort(int solutions[POP][N_SETS+1], int comeco, int fim, int pos){
 	j = fim;
 
 	while(i <= j){
-		while(solutions[i][pos] < solutions[pivot][pos])
+		while(solutions[i][pos] > solutions[pivot][pos])
 			i++;
 
-		while(solutions[j][pos] > solutions[pivot][pos])
+		while(solutions[j][pos] < solutions[pivot][pos])
 			j--;
 
 		if(i <= j){
