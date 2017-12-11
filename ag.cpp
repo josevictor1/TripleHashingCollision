@@ -1,5 +1,5 @@
 #include <cstdlib>
-// #include <iostream>
+#include <iostream>
 
 #include "ag.h"
 
@@ -67,27 +67,25 @@ int maxelement(int solutions[POP][4], int *tournamentelements, int tour){
 }
 
 void crossover(int solutions[POP][4], int parent1[4], int parent2[4], int range){
-	int aux[4], pos = random()%3;
-	int adjustment = (parent1[pos] - parent2[pos]) / 2;
-	int child2 = POP + range;
-	int child1 = child2 - 1;
+	double alfa = double(random() % (SIZE_M + 1)) / SIZE_M;
+	double complement = 1. - alfa;
+	int child1 = POP + range;
+	int child2 = child1 + 1;
 
 	// clog << "Parent 1: " << parent1[0] << '\t' << parent1[1] << '\t' << parent1[2] << endl;
 	// clog << "Parent 2: " << parent2[0] << '\t' << parent2[1] << '\t' << parent2[2] << endl;
 
 	for(size_t i = 0; i < 3; i++){
-		if(i == pos){
-			solutions[child1][i] = parent2[i];
-			solutions[child2][i] = parent1[i];
-
-		}else{
-			solutions[child1][i] = parent1[i] + adjustment;
-			solutions[child2][i] = parent2[i] - adjustment;
-		}
+		solutions[child1][i] = int(alfa * parent1[i]) + int(complement * parent2[i]);
+		solutions[child2][i] = int(complement * parent1[i]) + int(alfa * parent2[i]);
 	}
+
+	solutions[child1][0] += SIZE_M - solutions[child1][0] - solutions[child1][1] - solutions[child1][2];
+	solutions[child2][0] += SIZE_M - solutions[child2][0] - solutions[child2][1] - solutions[child2][2];
 
 	// clog << "Child 1: " << solutions[child1][0] << '\t' << solutions[child1][1] << '\t' << solutions[child1][2] << endl;
 	// clog << "Child 2: " << solutions[child2][0] << '\t' << solutions[child2][1] << '\t' << solutions[child2][2] << endl;
+	// clog << endl;
 
 	solutions[child1][3] = execute(solutions[child1][0],solutions[child1][1],solutions[child1][2]);
 	solutions[child2][3]= execute(solutions[child2][0],solutions[child2][1],solutions[child2][2]);
