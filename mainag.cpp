@@ -73,4 +73,10 @@ int main() {
 	}
 
 	clog << endl << pop[0][0] << '\t' << pop[0][1] << '\t' << pop[0][2] << "\t->\t" << pop[0][3] << endl;
+	clog << "m1" << pop[0][0] << endl;
+	clog << "m2" << pop[0][1] << endl;
+	clog << "m3" << pop[0][2] << endl;
+	clog << "collision" << pop[0][3] << endl;
+
+	return 0;
 }
