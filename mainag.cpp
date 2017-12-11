@@ -72,5 +72,5 @@ int main() {
 		quickSort(pop, 0, TPOP - 1, 3);
 	}
 
-	clog << pop[0][0] << '\t' << pop[0][1] << '\t' << pop[0][2] << "\t->\t" << pop[0][3] << endl;
+	clog << endl << pop[0][0] << '\t' << pop[0][1] << '\t' << pop[0][2] << "\t->\t" << pop[0][3] << endl;
 }
