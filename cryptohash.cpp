@@ -8,13 +8,14 @@
 
 using namespace std;
 
-using HashToString = unordered_map<int, string>;
-using StringToHash = unordered_map<string, int>;
+using Hash = long long;
+using HashToString = unordered_map<Hash, string>;
+using StringToHash = unordered_map<string, Hash>;
 
-int cryptohash(const string& original) {
+Hash cryptohash(const string& original) {
 	string hashed = md5(original);
 	hashed.resize(SIZE_HASH);
-	return stoi(hashed, nullptr, 16);
+	return stoll(hashed, nullptr, 16);
 }
 
 StringToHash create_messages() {
