@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <ctime>
 #include <iostream>
 
 #include "ag.h"
@@ -8,6 +9,8 @@ using namespace std;
 int main() {
 	int pop[POP][4];
 	int parents[TCROSS];
+
+	srand( time(NULL) );
 
 	for(size_t i = 0; i < POP; i++){
 		int generated;
@@ -72,7 +75,8 @@ int main() {
 		quickSort(pop, 0, TPOP - 1, 3);
 	}
 
-	// clog << endl << pop[0][0] << '\t' << pop[0][1] << '\t' << pop[0][2] << "\t->\t" << pop[0][3] << endl;
+	clog << endl;
+	// clog << pop[0][0] << '\t' << pop[0][1] << '\t' << pop[0][2] << "\t->\t" << pop[0][3] << endl;
 	clog << "m1 " << pop[0][0] << endl;
 	clog << "m2 " << pop[0][1] << endl;
 	clog << "m3 " << pop[0][2] << endl;
