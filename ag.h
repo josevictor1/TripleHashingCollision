@@ -1,9 +1,9 @@
 #include "cryptohash.h"
 
 #define N_SETS 3
-#define POP  100
-#define TPOP 180
-#define NGER 100
+#define POP  50
+#define TPOP 80
+#define NGER 25
 #define TOUR 3
 #define PMUT 50
 
