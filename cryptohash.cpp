@@ -19,7 +19,7 @@ Hash cryptohash(const string& original) {
 }
 
 StringToHash create_messages() {
-	default_random_engine generator;
+	default_random_engine generator (100);
 	StringToHash messages;
 	string created;
 	int random;
