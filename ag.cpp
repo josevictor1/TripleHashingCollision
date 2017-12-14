@@ -13,7 +13,7 @@ void exchange(int element1[4], int element2[4]){
 	}
 }
 
-void quickSort(int solutions[POP][N_SETS+1], int comeco, int fim, int pos){
+void quickSort(int solutions[][N_SETS+1], int comeco, int fim, int pos){
 	int pivot,aux[N_SETS+1];
 	int i, j;
 
@@ -54,7 +54,7 @@ bool verify(int *vet, int number, int range){
 	return true;
 }
 
-int maxelement(int solutions[POP][4], int *tournamentelements, int tour){
+int maxelement(int solutions[TPOP][4], int *tournamentelements, int tour){
 
 	int i, max = 0;
 
@@ -66,10 +66,9 @@ int maxelement(int solutions[POP][4], int *tournamentelements, int tour){
 	return tournamentelements[max];
 }
 
-void crossover(int solutions[POP][4], int parent1[4], int parent2[4], int range){
+void crossover(int solutions[TPOP][4], int parent1[4], int parent2[4], int child1){
 	double alfa = double(random() % (SIZE_M + 1)) / SIZE_M;
 	double complement = 1. - alfa;
-	int child1 = POP + range;
 	int child2 = child1 + 1;
 
 	// clog << "Parent 1: " << parent1[0] << '\t' << parent1[1] << '\t' << parent1[2] << endl;
