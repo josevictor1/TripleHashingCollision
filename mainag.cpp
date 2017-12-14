@@ -30,7 +30,7 @@ int main() {
 
 	quickSort(pop, 0, POP - 1, 3);
 
-	for(size_t nger = 1; nger <= NGER; nger++) {
+	for(size_t nger = 0; nger < NGER; nger++) {
 		int tournamentelements[TOUR], number;
 
 		clog << "Geração " << nger << endl;
